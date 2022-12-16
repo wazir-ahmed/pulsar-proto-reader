@@ -6,8 +6,8 @@ import (
 
 	"github.com/accuknox/auto-policy-discovery/src/protobuf/v1/discovery"
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/gogo/protobuf/proto"
 	log "github.com/sirupsen/logrus"
+	"google.golang.org/protobuf/proto"
 )
 
 type ConnectorOption struct {
@@ -38,7 +38,6 @@ func PrintProtoFeeds(opt ConnectorOption) {
 		log.Fatal(err)
 	}
 	defer consumer.Close()
-
 	for cm := range channel {
 		msg := cm.Message.Payload()
 
